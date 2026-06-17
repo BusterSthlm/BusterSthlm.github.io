@@ -1,11 +1,14 @@
 :root{
-  --bg:#0f1113;
-  --card:#0f1113;
-  --text:#0f1113;
+  --bg:#fbfbfc; /* page background */
+  --ink:#0b1220; /* primary text */
+  --text:#0b1220;
   --muted:#6b7280;
+  --line:#e6e9ef;
   --accent:#6c5ce7; /* purple accent */
+  --accent2:#ff4d00; /* secondary accent */
   --white:#ffffff;
-  --glass: rgba(255,255,255,0.04);
+  --card:#ffffff;
+  --glass: rgba(11,18,32,0.04);
   --radius:12px;
   --gap:1.25rem;
   --container:1100px;
@@ -27,6 +30,10 @@ body{font-family:var(--ff);color:#0b1220;background:#fbfbfc;line-height:1.5;-web
 .btn{display:inline-block;padding:0.6rem 1rem;border-radius:10px;text-decoration:none;border:0;background:transparent;color:inherit;font-weight:600}
 .btn.primary{background:linear-gradient(90deg,var(--accent),#5b8cf7);color:var(--white);box-shadow:0 6px 20px rgba(108,92,231,0.12);}
 .btn.ghost{border:1px solid rgba(11,18,32,0.06)}
+
+/* Accessible focus styles */
+a:focus,button:focus,input:focus,textarea:focus{outline:3px solid rgba(108,92,231,0.14);outline-offset:3px}
+
 
 /* Hero */
 .hero{position:relative;padding:4rem 0}
@@ -100,13 +107,7 @@ h2{font-size:1.25rem;margin-bottom:0.75rem}
 
 /* --- Styles imported from index_inspo.html to support merged sections --- */
 /* Note: These add additional layout/typography and component styles used by the inspo content. */
-:root{
-  --bg2:#f5f2eb;
-  --ink:#0e0e0e;
-  --muted2:#888;
-  --line:#d8d4cb;
-  --accent2:#ff4d00;
-}
+/* Removed duplicate :root (consolidated variables above) */
 .marquee-wrap{overflow:hidden;border-bottom:1px solid var(--line);background:var(--ink);padding:12px 0}
 .marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 18s linear infinite}
 .marquee-track span{font-family:var(--ff);font-size:14px;color:var(--bg);letter-spacing:3px;padding:0 32px;opacity:0.6}
