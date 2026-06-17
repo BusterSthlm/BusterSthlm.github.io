@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#fff"/>
+  <rect x="40" y="40" width="1120" height="340" rx="14" fill="#f7f9ff"/>
+  <rect x="60" y="420" width="420" height="220" rx="12" fill="#eef2ff"/>
+  <text x="80" y="120" fill="#6b7280" font-family="Inter, Arial" font-size="28">Project Thumbnail</text>
+</svg>

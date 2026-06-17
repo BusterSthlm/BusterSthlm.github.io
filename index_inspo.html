@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jack Sandberg — Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f2eb;
+  --ink:#0e0e0e;
+  --muted:#888;
+  --line:#d8d4cb;
+  --accent:#c8ff00;
+  --accent2:#ff4d00;
+  --white:#ffffff;
+  --card:#eeebe3;
+  --bebas:'Bebas Neue',sans-serif;
+  --serif:'Instrument Serif',serif;
+  --mono:'DM Mono',monospace;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--mono);overflow-x:hidden}
+
+/* NOISE TEXTURE */
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:0.4
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:48px;
+  background:rgba(245,242,235,0.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line)
+}
+.nav-name{font-family:var(--bebas);font-size:16px;letter-spacing:2px;color:var(--ink)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-dot{width:28px;height:28px;background:var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.nav-dot span{font-size:11px;color:var(--bg);font-weight:500}
+
+/* HERO */
+.hero{
+  padding:120px 40px 80px;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:end;gap:40px;
+  border-bottom:1px solid var(--line);
+  position:relative;overflow:hidden
+}
+.hero-left{}
+.hero-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--ink);display:flex;align-items:center;justify-content:center;
+  font-family:var(--bebas);font-size:16px;color:var(--bg);
+  margin-bottom:20px;border:2px solid var(--line)
+}
+.hero-name{
+  font-family:var(--bebas);font-size:clamp(56px,8vw,96px);
+  line-height:0.9;letter-spacing:2px;color:var(--ink);
+  margin-bottom:12px
+}
+.hero-title{
+  font-family:var(--mono);font-size:12px;color:var(--accent2);
+  letter-spacing:3px;text-transform:uppercase;
+  margin-bottom:20px;font-weight:500
+}
+.hero-sub{
+  font-size:13px;color:var(--muted);line-height:1.8;
+  max-width:340px;margin-bottom:32px
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-fill{
+  font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  background:var(--ink);color:var(--bg);
+  padding:11px 20px;border:1px solid var(--ink);
+  text-decoration:none;transition:all 0.2s;display:inline-block
+}
+.btn-fill:hover{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.btn-outline{
+  font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  background:transparent;color:var(--ink);
+  padding:11px 20px;border:1px solid var(--ink);
+  text-decoration:none;transition:all 0.2s;display:inline-block
+}
+.btn-outline:hover{background:var(--ink);color:var(--bg)}
+
+.hero-right{text-align:right;padding-bottom:8px}
+.hero-tagline{
+  font-family:var(--serif);font-size:clamp(22px,3vw,36px);
+  font-style:italic;line-height:1.3;color:var(--muted);
+  max-width:380px;margin-left:auto
+}
+.hero-tagline strong{color:var(--ink);font-style:normal;font-family:var(--bebas);font-size:1.3em;letter-spacing:1px}
+
+/* MARQUEE */
+.marquee-wrap{
+  overflow:hidden;border-bottom:1px solid var(--line);
+  background:var(--ink);padding:12px 0
+}
+.marquee-track{
+  display:flex;gap:0;white-space:nowrap;
+  animation:marquee 18s linear infinite
+}
+.marquee-track span{
+  font-family:var(--bebas);font-size:14px;
+  color:var(--bg);letter-spacing:3px;
+  padding:0 32px;opacity:0.6
+}
+.marquee-track span.hi{color:var(--accent);opacity:1}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* CLIENTS */
+.clients{
+  padding:48px 40px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:40px
+}
+.clients-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);white-space:nowrap;flex-shrink:0}
+.clients-logos{display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+.client-pill{
+  font-family:var(--bebas);font-size:15px;letter-spacing:2px;
+  color:var(--muted);transition:color 0.2s
+}
+.client-pill:hover{color:var(--ink)}
+
+/* SECTION LABEL */
+.section-tag{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:40px;
+  display:flex;align-items:center;gap:12px
+}
+.section-tag::after{content:'';flex:1;height:1px;background:var(--line)}
+
+/* WORKS */
+.works{padding:80px 40px;border-bottom:1px solid var(--line)}
+.work-item{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;border:1px solid var(--line);
+  margin-bottom:24px;transition:border-color 0.3s;
+  text-decoration:none;color:inherit
+}
+.work-item:hover{border-color:var(--ink)}
+.work-item:hover .work-arrow{transform:rotate(-45deg)}
+.work-thumb{
+  aspect-ratio:16/9;overflow:hidden;
+  background:var(--card);
+  display:flex;align-items:center;justify-content:center;
+  position:relative
+}
+.work-thumb-inner{
+  width:80%;height:80%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--bebas);font-size:11px;letter-spacing:2px;
+  color:var(--muted);border:1px dashed var(--line);
+  flex-direction:column;gap:8px
+}
+.thumb-icon{font-size:32px;opacity:0.5}
+/* mockup screens */
+.mock-screen{
+  width:90%;background:#1a1a2e;border-radius:4px;overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,0.2)
+}
+.mock-bar{height:20px;background:#2a2a3e;display:flex;align-items:center;gap:4px;padding:0 8px}
+.mock-dot{width:6px;height:6px;border-radius:50%}
+.mock-body{padding:12px;display:flex;flex-direction:column;gap:4px}
+.mock-line{height:4px;background:rgba(255,255,255,0.1);border-radius:2px}
+.mock-line.hi{background:rgba(0,255,136,0.3)}
+.mock-img{height:48px;background:linear-gradient(135deg,#1a1a3e,#2d1b6a);border-radius:2px;margin-bottom:4px}
+
+.work-body{padding:36px 32px;display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid var(--line)}
+.work-num{font-size:10px;color:var(--muted);letter-spacing:2px;margin-bottom:16px}
+.work-title{font-family:var(--bebas);font-size:clamp(20px,2.5vw,32px);letter-spacing:1px;line-height:1.1;margin-bottom:12px}
+.work-client{font-size:11px;color:var(--accent2);letter-spacing:1px;margin-bottom:16px}
+.work-desc{font-size:12px;color:var(--muted);line-height:1.75;flex:1}
+.work-footer{display:flex;align-items:center;justify-content:space-between;margin-top:24px;border-top:1px solid var(--line);padding-top:16px}
+.work-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:10px;letter-spacing:1px;padding:3px 8px;border:1px solid var(--line);color:var(--muted)}
+.work-arrow{font-size:18px;transition:transform 0.2s;color:var(--muted)}
+
+/* ABOUT */
+.about{padding:80px 40px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.about-text h2{font-family:var(--bebas);font-size:clamp(40px,5vw,64px);line-height:0.95;letter-spacing:2px;margin-bottom:24px}
+.about-text h2 em{font-style:italic;font-family:var(--serif);color:var(--muted)}
+.about-text p{font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:16px}
+.about-text p strong{color:var(--ink);font-weight:500}
+
+/* EXPERIENCE */
+.exp-section{}
+.exp-heading{font-family:var(--bebas);font-size:18px;letter-spacing:2px;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.exp-row{
+  display:grid;grid-template-columns:80px 1fr auto;gap:16px;
+  padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline
+}
+.exp-year{font-size:10px;color:var(--muted);letter-spacing:1px;white-space:nowrap}
+.exp-role{font-size:13px;font-weight:500;color:var(--ink)}
+.exp-role small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}
+.exp-company{
+  font-size:10px;letter-spacing:1px;text-transform:uppercase;
+  padding:3px 8px;background:var(--card);border:1px solid var(--line);color:var(--muted);
+  white-space:nowrap
+}
+.exp-company.accent{background:var(--ink);color:var(--accent);border-color:var(--ink)}
+
+/* EDUCATION */
+.edu-section{margin-top:40px}
+
+/* CERTS */
+.certs{
+  padding:80px 40px;border-bottom:1px solid var(--line);
+  background:var(--ink)
+}
+.certs .section-tag{color:rgba(255,255,255,0.3)}
+.certs .section-tag::after{background:rgba(255,255,255,0.1)}
+.certs-heading{font-family:var(--bebas);font-size:clamp(32px,5vw,56px);color:var(--bg);letter-spacing:2px;margin-bottom:48px}
+.certs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cert-card{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+  padding:20px;transition:border-color 0.3s
+}
+.cert-card:hover{border-color:var(--accent)}
+.cert-icon{font-size:28px;margin-bottom:12px;display:block}
+.cert-name{font-size:12px;color:rgba(255,255,255,0.8);line-height:1.5}
+.cert-issuer{font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;letter-spacing:1px}
+
+/* CONTACT */
+.contact{padding:80px 40px;border-bottom:1px solid var(--line)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.contact-left h2{font-family:var(--bebas);font-size:clamp(40px,6vw,80px);line-height:0.9;letter-spacing:2px;margin-bottom:24px}
+.contact-left h2 span{display:block;color:var(--muted)}
+.contact-left p{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:32px}
+.contact-links{display:flex;flex-direction:column;gap:12px}
+.contact-link{
+  display:flex;align-items:center;gap:16px;
+  padding:14px 20px;border:1px solid var(--line);
+  text-decoration:none;color:var(--ink);transition:all 0.2s
+}
+.contact-link:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.contact-link-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.contact-link:hover .contact-link-label{color:rgba(255,255,255,0.5)}
+.contact-link-val{font-size:13px;font-weight:500}
+.contact-link-arrow{margin-left:auto;font-size:16px}
+
+.contact-form{}
+label{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+input,textarea{
+  width:100%;background:transparent;border:1px solid var(--line);
+  color:var(--ink);font-family:var(--mono);font-size:12px;
+  padding:12px 14px;outline:none;transition:border-color 0.2s;
+  margin-bottom:16px;appearance:none
+}
+input:focus,textarea:focus{border-color:var(--ink)}
+textarea{height:100px;resize:vertical}
+.btn-submit{
+  width:100%;font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  background:var(--ink);color:var(--bg);padding:14px;border:none;
+  cursor:pointer;font-family:var(--mono);transition:background 0.2s
+}
+.btn-submit:hover{background:var(--accent2)}
+
+/* FOOTER */
+footer{
+  padding:32px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--line)
+}
+.footer-name{font-family:var(--bebas);font-size:18px;letter-spacing:2px}
+.footer-copy{font-size:11px;color:var(--muted);letter-spacing:1px}
+.footer-back{
+  font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  text-decoration:none;color:var(--muted);
+  display:flex;align-items:center;gap:6px;transition:color 0.2s
+}
+.footer-back:hover{color:var(--ink)}
+
+/* PAGE LOAD ANIMATIONS */
+@keyframes fadeup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-avatar{animation:fadeup 0.5s ease both}
+.hero-name{animation:fadeup 0.6s 0.05s ease both}
+.hero-title{animation:fadeup 0.6s 0.1s ease both}
+.hero-sub{animation:fadeup 0.6s 0.15s ease both}
+.hero-btns{animation:fadeup 0.6s 0.2s ease both}
+.hero-right{animation:fadeup 0.7s 0.25s ease both}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:80px 20px 60px;gap:40px}
+  .hero-right{text-align:left}
+  .hero-tagline{margin-left:0}
+  .work-item,.about,.contact-inner{grid-template-columns:1fr}
+  .work-body{border-left:none;border-top:1px solid var(--line)}
+  .certs-grid{grid-template-columns:1fr 1fr}
+  .clients{flex-direction:column;align-items:flex-start;gap:20px;padding:32px 20px}
+  .works,.about,.certs,.contact{padding:60px 20px}
+  .exp-row{grid-template-columns:60px 1fr}
+  .exp-company{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Jack Sandberg</div>
+  <ul class="nav-links">
+    <li><a href="#works">Works</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-dot"><span>JS</span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-avatar">JS</div>
+    <h1 class="hero-name">Jack<br>Sandberg</h1>
+    <div class="hero-title">Web Developer</div>
+    <p class="hero-sub">I turn strategy into frontend experiences that inform, engage, and deliver.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-fill">Contact</a>
+      <a href="https://linkedin.com" target="_blank" class="btn-outline">LinkedIn ↗</a>
+      <a href="https://github.com" target="_blank" class="btn-outline">GitHub ↗</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <p class="hero-tagline">
+      Bridging the gap between<br>
+      <strong>how things look</strong><br>
+      and how they're built.
+    </p>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Web Development</span><span class="hi">·</span>
+    <span>Frontend Design</span><span class="hi">·</span>
+    <span>Figma</span><span class="hi">·</span>
+    <span class="hi">Tailwind CSS</span><span class="hi">·</span>
+    <span>WordPress</span><span class="hi">·</span>
+    <span>Next.js</span><span class="hi">·</span>
+    <span>SEO & Conversion</span><span class="hi">·</span>
+    <span>System Architecture</span><span class="hi">·</span>
+    <span>Stockholm, Sweden</span><span class="hi">·</span>
+    <span>Web Development</span><span class="hi">·</span>
+    <span>Frontend Design</span><span class="hi">·</span>
+    <span>Figma</span><span class="hi">·</span>
+    <span class="hi">Tailwind CSS</span><span class="hi">·</span>
+    <span>WordPress</span><span class="hi">·</span>
+    <span>Next.js</span><span class="hi">·</span>
+    <span>SEO & Conversion</span><span class="hi">·</span>
+    <span>System Architecture</span><span class="hi">·</span>
+    <span>Stockholm, Sweden</span><span class="hi">·</span>
+  </div>
+</div>
+
+<!-- CLIENTS -->
+<div class="clients">
+  <span class="clients-label">Real client work</span>
+  <div class="clients-logos">
+    <span class="client-pill">BGC Pay</span>
+    <span class="client-pill">·</span>
+    <span class="client-pill">Endorfinas Media</span>
+    <span class="client-pill">·</span>
+    <span class="client-pill">Stift</span>
+    <span class="client-pill">·</span>
+    <span class="client-pill">Alivefestival</span>
+    <span class="client-pill">·</span>
+    <span class="client-pill">DalaGameJam</span>
+  </div>
+</div>
+
+<!-- WORKS -->
+<section class="works" id="works">
+  <div class="section-tag">Case Studies</div>
+
+  <!-- Project 1 -->
+  <a href="#" class="work-item">
+    <div class="work-thumb">
+      <div style="width:88%;padding:12px">
+        <div class="mock-screen">
+          <div class="mock-bar">
+            <div class="mock-dot" style="background:#ff5f57"></div>
+            <div class="mock-dot" style="background:#febc2e"></div>
+            <div class="mock-dot" style="background:#28c840"></div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-img" style="background:linear-gradient(135deg,#0a0a0f,#1a1a2e);height:60px;display:flex;align-items:center;justify-content:center">
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:#c8ff00;letter-spacing:3px">ALIVE FESTIVAL</span>
+            </div>
+            <div class="mock-line hi"></div>
+            <div class="mock-line" style="width:80%"></div>
+            <div class="mock-line" style="width:60%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="work-body">
+      <div>
+        <div class="work-num">01 / 03</div>
+        <h3 class="work-title">One of Sweden's Biggest Music Festival 2.0</h3>
+        <div class="work-client">Alivefestival.se</div>
+        <p class="work-desc">Data-driven optimization through Google Analytics. Design and develop websites in Webflow, provide technical support, ensure standards and legal compliance, and create cohesive Figma designs and design systems.</p>
+      </div>
+      <div class="work-footer">
+        <div class="work-tags">
+          <span class="tag">Webflow</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Analytics</span>
+        </div>
+        <span class="work-arrow">↗</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Project 2 -->
+  <a href="#" class="work-item">
+    <div class="work-thumb" style="background:#f8f5ff">
+      <div style="width:88%;display:flex;flex-direction:column;gap:8px;padding:12px">
+        <div style="background:#fff;border:1px solid #eee;border-radius:3px;padding:10px">
+          <div style="height:8px;background:#7c3aed;border-radius:2px;width:60%;margin-bottom:6px"></div>
+          <div style="height:4px;background:#e5e7eb;border-radius:2px;margin-bottom:4px"></div>
+          <div style="height:4px;background:#e5e7eb;border-radius:2px;width:80%"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+          <div style="background:#fff;border:1px solid #eee;border-radius:3px;padding:8px;height:40px"></div>
+          <div style="background:#7c3aed;border-radius:3px;padding:8px;height:40px;display:flex;align-items:center;justify-content:center">
+            <div style="height:4px;background:rgba(255,255,255,0.5);border-radius:2px;width:70%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="work-body">
+      <div>
+        <div class="work-num">02 / 03</div>
+        <h3 class="work-title">Website Redesign for Endorfinas Media (SaaS/B2B)</h3>
+        <div class="work-client">Endorfinas.media</div>
+        <p class="work-desc">Full website design for a Spanish SaaS/B2B company — crafted from scratch with a focus on usability and brand alignment.</p>
+      </div>
+      <div class="work-footer">
+        <div class="work-tags">
+          <span class="tag">UX/UI</span>
+          <span class="tag">B2B</span>
+          <span class="tag">SaaS</span>
+        </div>
+        <span class="work-arrow">↗</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Project 3 -->
+  <a href="#" class="work-item">
+    <div class="work-thumb" style="background:#0f1628">
+      <div style="width:88%;padding:12px">
+        <div style="background:#1a2a3a;border:1px solid #243a4a;border-radius:4px;padding:16px">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:#00b4d8;margin-bottom:10px;letter-spacing:1px">STIFT — FINANCIAL AI</div>
+          <div style="display:flex;gap:8px;margin-bottom:10px">
+            <div style="flex:1;background:#243a4a;border-radius:3px;height:32px"></div>
+            <div style="flex:1;background:#243a4a;border-radius:3px;height:32px"></div>
+            <div style="flex:1;background:#243a4a;border-radius:3px;height:32px"></div>
+          </div>
+          <div style="height:4px;background:rgba(0,180,216,0.15);border-radius:2px;margin-bottom:4px"></div>
+          <div style="height:4px;background:rgba(0,180,216,0.15);border-radius:2px;width:75%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="work-body">
+      <div>
+        <div class="work-num">03 / 03</div>
+        <h3 class="work-title">From Idea to New Ways of Working with Finance</h3>
+        <div class="work-client">Stift — AI Financial Intelligence</div>
+        <p class="work-desc">Built for SMEs to improve their financial intelligence using AI. CTO role covering product, brand, and codebase — from Next.js architecture to design system and Supabase integration.</p>
+      </div>
+      <div class="work-footer">
+        <div class="work-tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">CTO</span>
+        </div>
+        <span class="work-arrow">↗</span>
+      </div>
+    </div>
+  </a>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text">
+    <div class="section-tag">About</div>
+    <h2>Web dev<br>from <em>Stockholm</em></h2>
+    <p>I'm a Stockholm-based web developer who works across the full stack — from system architecture and tech decisions to design and frontend delivery. I bridge the gap between how things look and how they're built, which means fewer handoffs and cleaner outcomes.</p>
+    <p>Right now I'm helping <strong>Stift</strong> shape their product, brand, and codebase from the ground up. I'm also organizing <strong>DalaGameJam</strong> — a game jam for emerging designers and developers in Dalarna.</p>
+    <p>I've grown up in startup environments and thrive in the full-scope chaos of early-stage work.</p>
+    <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
+      <div style="padding:12px 20px;background:var(--card);border:1px solid var(--line);font-size:11px;letter-spacing:1px">Figma</div>
+      <div style="padding:12px 20px;background:var(--card);border:1px solid var(--line);font-size:11px;letter-spacing:1px">WordPress</div>
+      <div style="padding:12px 20px;background:var(--card);border:1px solid var(--line);font-size:11px;letter-spacing:1px">Tailwind</div>
+      <div style="padding:12px 20px;background:var(--card);border:1px solid var(--line);font-size:11px;letter-spacing:1px">Next.js</div>
+      <div style="padding:12px 20px;background:var(--card);border:1px solid var(--line);font-size:11px;letter-spacing:1px">Python</div>
+      <div style="padding:12px 20px;background:var(--card);border:1px solid var(--line);font-size:11px;letter-spacing:1px">GitHub</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="exp-section">
+      <div class="exp-heading">Work & Education</div>
+      <div class="exp-row">
+        <span class="exp-year">2025</span>
+        <div class="exp-role">Product Designer<small>Current role</small></div>
+        <span class="exp-company accent">Stift</span>
+      </div>
+      <div class="exp-row">
+        <span class="exp-year">2024–2026</span>
+        <div class="exp-role">Freelance Web Development<small>Frontend & design</small></div>
+        <span class="exp-company">Freelance</span>
+      </div>
+      <div class="exp-row">
+        <span class="exp-year">2026</span>
+        <div class="exp-role">Organizer<small>DalaGameJam</small></div>
+        <span class="exp-company">DalaGameJam</span>
+      </div>
+      <div class="exp-row">
+        <span class="exp-year">2024–2025</span>
+        <div class="exp-role">Web Developer<small>Full stack</small></div>
+        <span class="exp-company">Alivefestival</span>
+      </div>
+      <div class="exp-row">
+        <span class="exp-year">2024</span>
+        <div class="exp-role">UX/UI Design Internship<small>SaaS/B2B</small></div>
+        <span class="exp-company">Endorfinas Media</span>
+      </div>
+    </div>
+
+    <div class="edu-section">
+      <div class="exp-heading">Education</div>
+      <div class="exp-row">
+        <span class="exp-year">2027</span>
+        <div class="exp-role">Webbutveckling<small>Dalarna Högskola</small></div>
+        <span class="exp-company">BSc</span>
+      </div>
+      <div class="exp-row">
+        <span class="exp-year">2019–2021</span>
+        <div class="exp-role">UX Designer<small>Hyper Island</small></div>
+        <span class="exp-company">Diploma</span>
+      </div>
+      <div class="exp-row">
+        <span class="exp-year">2015</span>
+        <div class="exp-role">Webbutveckling<small>Folkehögskolan</small></div>
+        <span class="exp-company">Cert</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section class="certs">
+  <div class="section-tag">Recognition</div>
+  <h2 class="certs-heading">Certificates &<br>Hackathons</h2>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <span class="cert-icon">🎨</span>
+      <div class="cert-name">Google UX Design Certificate</div>
+      <div class="cert-issuer">Coursera · 2024</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-icon">🏆</span>
+      <div class="cert-name">Rabbit Hole Hackathon</div>
+      <div class="cert-issuer">Finalist · 2024</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-icon">🤖</span>
+      <div class="cert-name">Microsoft AI Fundamentals</div>
+      <div class="cert-issuer">Microsoft · 2024</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-icon">🚀</span>
+      <div class="cert-name">Go to press, be on schedule</div>
+      <div class="cert-issuer">Hyper Island · 2021</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-tag">Get in touch</div>
+      <h2>Let's<br><span>build</span><br>something.</h2>
+      <p>Available for freelance projects, full-time roles, and anything in between. Drop me a line or find me on LinkedIn.</p>
+      <div class="contact-links">
+        <a href="mailto:jacksandberg@gmail.com" class="contact-link">
+          <div>
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-val">jacksandberg@gmail.com</div>
+          </div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="contact-link">
+          <div>
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-val">linkedin.com/in/jacksandberg</div>
+          </div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
+        <a href="https://github.com" target="_blank" class="contact-link">
+          <div>
+            <div class="contact-link-label">GitHub</div>
+            <div class="contact-link-val">github.com/jacksandberg</div>
+          </div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div>
+        <label>Name</label>
+        <input type="text" placeholder="Your name">
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+      <div>
+        <label>Message</label>
+        <textarea placeholder="Tell me about your project..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="handleSubmit(this)">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Jack Sandberg©</div>
+  <span class="footer-copy">Copyright 2025 by Jack Sandberg</span>
+  <a href="#home" class="footer-back">Back to top ↑</a>
+</footer>
+
+<script>
+// Active nav on scroll
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  links.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--ink)' : ''; });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.work-item,.cert-card,.mentor-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+
+function handleSubmit(btn) {
+  btn.textContent = '✓ Sent — I\'ll be in touch!';
+  btn.style.background = 'var(--accent2)';
+  setTimeout(() => {
+    btn.textContent = 'Send Message →';
+    btn.style.background = '';
+  }, 3000);
+}
+</script>
+</body>
+</html>
