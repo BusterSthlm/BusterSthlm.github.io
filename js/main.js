@@ -26,3 +26,38 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 });
+
+// Active nav on scroll (from index_inspo)
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) cur = s.id; });
+  links.forEach(a => { if(a.getAttribute('href') === '#'+cur) { a.style.color = 'var(--accent)'; } else { a.style.color = ''; } });
+});
+
+// Scroll reveal for works and certs
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.work-item,.cert-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+
+function handleSubmit(btn) {
+  btn.textContent = '✓ Sent — I\'ll be in touch!';
+  btn.style.background = 'var(--accent2)';
+  setTimeout(() => {
+    btn.textContent = 'Send Message →';
+    btn.style.background = '';
+  }, 3000);
+}
+

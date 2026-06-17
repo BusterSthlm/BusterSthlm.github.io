@@ -12,11 +12,11 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#">Jane Developer</a>
+      <a class="brand" href="#">Jack Sandberg</a>
       <nav class="nav">
-        <a href="#projects">Projects</a>
-        <a href="#services">Services</a>
-        <a href="#contact" class="cta">Work With Me</a>
+        <a href="#works">Works</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="cta">Contact</a>
       </nav>
     </div>
   </header>
@@ -46,63 +46,187 @@
       </div>
     </section>
 
-    <!-- About -->
+    <!-- Marquee (from inspo) -->
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span>Web Development</span><span class="hi">·</span>
+        <span>Frontend Design</span><span class="hi">·</span>
+        <span>Figma</span><span class="hi">·</span>
+        <span>Tailwind CSS</span><span class="hi">·</span>
+        <span>WordPress</span><span class="hi">·</span>
+        <span>Next.js</span><span class="hi">·</span>
+        <span>SEO & Conversion</span><span class="hi">·</span>
+        <span>System Architecture</span><span class="hi">·</span>
+        <span>Stockholm, Sweden</span><span class="hi">·</span>
+      </div>
+    </div>
+
+    <!-- Clients -->
+    <div class="clients">
+      <span class="clients-label">Real client work</span>
+      <div class="clients-logos">
+        <span class="client-pill">BGC Pay</span>
+        <span class="client-pill">Endorfinas Media</span>
+        <span class="client-pill">Stift</span>
+        <span class="client-pill">Alivefestival</span>
+        <span class="client-pill">DalaGameJam</span>
+      </div>
+    </div>
+
+    <!-- About (merged from inspo) -->
     <section class="about" id="about">
       <div class="container about-inner">
         <div class="about-text">
-          <h2>About Me</h2>
-          <p>I’m a freelance frontend developer focused on building accessible, high‑performance web applications. I partner with product teams and founders to ship impactful features quickly while maintaining high design fidelity.</p>
-          <a class="btn" href="#" download>Download CV</a>
+          <div class="section-tag">About</div>
+          <h2>Web dev<br>from <em>Stockholm</em></h2>
+          <p>I'm a Stockholm-based web developer who works across the full stack — from system architecture and tech decisions to design and frontend delivery. I bridge the gap between how things look and how they're built, which means fewer handoffs and cleaner outcomes.</p>
+          <p>Right now I'm helping <strong>Stift</strong> shape their product, brand, and codebase from the ground up. I'm also organizing <strong>DalaGameJam</strong> — a game jam for emerging designers and developers in Dalarna.</p>
+          <p>I've grown up in startup environments and thrive in the full-scope chaos of early-stage work.</p>
+          <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+            <div style="padding:10px 16px;background:var(--glass);border-radius:10px;font-size:11px">Figma</div>
+            <div style="padding:10px 16px;background:var(--glass);border-radius:10px;font-size:11px">WordPress</div>
+            <div style="padding:10px 16px;background:var(--glass);border-radius:10px;font-size:11px">Tailwind</div>
+            <div style="padding:10px 16px;background:var(--glass);border-radius:10px;font-size:11px">Next.js</div>
+            <div style="padding:10px 16px;background:var(--glass);border-radius:10px;font-size:11px">Python</div>
+            <div style="padding:10px 16px;background:var(--glass);border-radius:10px;font-size:11px">GitHub</div>
+          </div>
         </div>
-        <div class="skills">
-          <h3>Skills</h3>
-          <ul class="skills-grid">
-            <li><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg><span>HTML5</span></li>
-            <li><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/></svg><span>CSS3</span></li>
-            <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 12h16"/></svg><span>JavaScript</span></li>
-            <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/></svg><span>React-friendly</span></li>
-            <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12h18"/></svg><span>UX & Prototyping</span></li>
-            <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20"/></svg><span>Performance</span></li>
-          </ul>
+        <div>
+          <div class="exp-section">
+            <div class="exp-heading">Work & Education</div>
+            <div class="exp-row"><span class="exp-year">2025</span><div class="exp-role">Product Designer<small>Current role</small></div><span class="exp-company accent">Stift</span></div>
+            <div class="exp-row"><span class="exp-year">2024–2026</span><div class="exp-role">Freelance Web Development<small>Frontend & design</small></div><span class="exp-company">Freelance</span></div>
+            <div class="exp-row"><span class="exp-year">2026</span><div class="exp-role">Organizer<small>DalaGameJam</small></div><span class="exp-company">DalaGameJam</span></div>
+            <div class="exp-row"><span class="exp-year">2024–2025</span><div class="exp-role">Web Developer<small>Full stack</small></div><span class="exp-company">Alivefestival</span></div>
+            <div class="exp-row"><span class="exp-year">2024</span><div class="exp-role">UX/UI Design Internship<small>SaaS/B2B</small></div><span class="exp-company">Endorfinas Media</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section class="projects" id="projects">
+    <!-- Works / Case Studies (from inspo) -->
+    <section class="works" id="works">
+      <div class="section-tag">Case Studies</div>
+
+      <!-- Project 1 -->
+      <a href="#" class="work-item">
+        <div class="work-thumb">
+          <div style="width:88%;padding:12px">
+            <div class="mock-screen">
+              <div class="mock-bar">
+                <div class="mock-dot" style="background:#ff5f57"></div>
+                <div class="mock-dot" style="background:#febc2e"></div>
+                <div class="mock-dot" style="background:#28c840"></div>
+              </div>
+              <div class="mock-body">
+                <div class="mock-img" style="background:linear-gradient(135deg,#0a0a0f,#1a1a2e);height:60px;display:flex;align-items:center;justify-content:center">
+                  <span style="font-family:var(--ff);font-size:16px;color:var(--accent);letter-spacing:3px">ALIVE FESTIVAL</span>
+                </div>
+                <div class="mock-line hi"></div>
+                <div class="mock-line" style="width:80%"></div>
+                <div class="mock-line" style="width:60%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="work-body">
+          <div>
+            <div class="work-num">01 / 03</div>
+            <h3 class="work-title">One of Sweden's Biggest Music Festival 2.0</h3>
+            <div class="work-client">Alivefestival.se</div>
+            <p class="work-desc">Data-driven optimization through Google Analytics. Design and develop websites in Webflow, provide technical support, ensure standards and legal compliance, and create cohesive Figma designs and design systems.</p>
+          </div>
+          <div class="work-footer">
+            <div class="work-tags">
+              <span class="tag">Webflow</span>
+              <span class="tag">Figma</span>
+              <span class="tag">Analytics</span>
+            </div>
+            <span class="work-arrow">↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project 2 -->
+      <a href="#" class="work-item">
+        <div class="work-thumb" style="background:#f8f5ff">
+          <div style="width:88%;display:flex;flex-direction:column;gap:8px;padding:12px">
+            <div style="background:#fff;border:1px solid #eee;border-radius:3px;padding:10px">
+              <div style="height:8px;background:#7c3aed;border-radius:2px;width:60%;margin-bottom:6px"></div>
+              <div style="height:4px;background:#e5e7eb;border-radius:2px;margin-bottom:4px"></div>
+              <div style="height:4px;background:#e5e7eb;border-radius:2px;width:80%"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+              <div style="background:#fff;border:1px solid #eee;border-radius:3px;padding:8px;height:40px"></div>
+              <div style="background:#7c3aed;border-radius:3px;padding:8px;height:40px;display:flex;align-items:center;justify-content:center">
+                <div style="height:4px;background:rgba(255,255,255,0.5);border-radius:2px;width:70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="work-body">
+          <div>
+            <div class="work-num">02 / 03</div>
+            <h3 class="work-title">Website Redesign for Endorfinas Media (SaaS/B2B)</h3>
+            <div class="work-client">Endorfinas.media</div>
+            <p class="work-desc">Full website design for a Spanish SaaS/B2B company — crafted from scratch with a focus on usability and brand alignment.</p>
+          </div>
+          <div class="work-footer">
+            <div class="work-tags">
+              <span class="tag">UX/UI</span>
+              <span class="tag">B2B</span>
+              <span class="tag">SaaS</span>
+            </div>
+            <span class="work-arrow">↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="#" class="work-item">
+        <div class="work-thumb" style="background:#0f1628">
+          <div style="width:88%;padding:12px">
+            <div style="background:#1a2a3a;border:1px solid #243a4a;border-radius:4px;padding:16px">
+              <div style="font-family:var(--ff);font-size:10px;color:#00b4d8;margin-bottom:10px;letter-spacing:1px">STIFT — FINANCIAL AI</div>
+              <div style="display:flex;gap:8px;margin-bottom:10px">
+                <div style="flex:1;background:#243a4a;border-radius:3px;height:32px"></div>
+                <div style="flex:1;background:#243a4a;border-radius:3px;height:32px"></div>
+                <div style="flex:1;background:#243a4a;border-radius:3px;height:32px"></div>
+              </div>
+              <div style="height:4px;background:rgba(0,180,216,0.15);border-radius:2px;margin-bottom:4px"></div>
+              <div style="height:4px;background:rgba(0,180,216,0.15);border-radius:2px;width:75%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-body">
+          <div>
+            <div class="work-num">03 / 03</div>
+            <h3 class="work-title">From Idea to New Ways of Working with Finance</h3>
+            <div class="work-client">Stift — AI Financial Intelligence</div>
+            <p class="work-desc">Built for SMEs to improve their financial intelligence using AI. CTO role covering product, brand, and codebase — from Next.js architecture to design system and Supabase integration.</p>
+          </div>
+          <div class="work-footer">
+            <div class="work-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">CTO</span>
+            </div>
+            <span class="work-arrow">↗</span>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Certs / Recognition -->
+    <section class="certs">
       <div class="container">
-        <h2>Selected Projects</h2>
-        <p class="muted">Recent client work — web apps, dashboards and design systems.</p>
-        <div class="projects-grid">
-          <article class="card project-card">
-            <img src="assets/placeholder-2.svg" alt="Project thumbnail">
-            <div class="card-body">
-              <h3>Project One</h3>
-              <p class="card-desc">A performant dashboard for monitoring key metrics in real time.</p>
-              <p class="tech">Tech: HTML · CSS · JS</p>
-              <a class="link" href="#">View Project →</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <img src="assets/placeholder-3.svg" alt="Project thumbnail">
-            <div class="card-body">
-              <h3>Project Two</h3>
-              <p class="card-desc">Design system and component library for a growing product team.</p>
-              <p class="tech">Tech: CSS · JS</p>
-              <a class="link" href="#">View Project →</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <img src="assets/placeholder-1.svg" alt="Project thumbnail">
-            <div class="card-body">
-              <h3>Project Three</h3>
-              <p class="card-desc">Landing page and marketing site for acquisition campaigns.</p>
-              <p class="tech">Tech: HTML · CSS</p>
-              <a class="link" href="#">View Project →</a>
-            </div>
-          </article>
+        <div class="section-tag">Recognition</div>
+        <h2 class="certs-heading">Certificates &<br>Hackathons</h2>
+        <div class="certs-grid">
+          <div class="cert-card"><span class="cert-icon">🎨</span><div class="cert-name">Google UX Design Certificate</div><div class="cert-issuer">Coursera · 2024</div></div>
+          <div class="cert-card"><span class="cert-icon">🏆</span><div class="cert-name">Rabbit Hole Hackathon</div><div class="cert-issuer">Finalist · 2024</div></div>
+          <div class="cert-card"><span class="cert-icon">🤖</span><div class="cert-name">Microsoft AI Fundamentals</div><div class="cert-issuer">Microsoft · 2024</div></div>
+          <div class="cert-card"><span class="cert-icon">🚀</span><div class="cert-name">Go to press, be on schedule</div><div class="cert-issuer">Hyper Island · 2021</div></div>
         </div>
       </div>
     </section>
@@ -145,45 +269,61 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact (from inspo) -->
     <section class="contact" id="contact">
-      <div class="container contact-inner">
-        <div class="contact-form card">
-          <h2>Let’s Build Something Together</h2>
-          <form id="contactForm" action="#" method="post">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" required>
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required>
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-
-            <div class="form-actions">
-              <button class="btn primary" type="submit">Send Message</button>
-            </div>
-          </form>
-        </div>
-
-        <aside class="contact-info">
-          <h3>Contact</h3>
-          <p>Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
-          <p class="muted">Follow me</p>
-          <div class="social">
-            <a href="#" aria-label="Twitter" class="icon-link">Twitter</a>
-            <a href="#" aria-label="LinkedIn" class="icon-link">LinkedIn</a>
+      <div class="contact-inner">
+        <div class="contact-left">
+          <div class="section-tag">Get in touch</div>
+          <h2>Let's<br><span>build</span><br>something.</h2>
+          <p>Available for freelance projects, full-time roles, and anything in between. Drop me a line or find me on LinkedIn.</p>
+          <div class="contact-links">
+            <a href="mailto:jacksandberg@gmail.com" class="contact-link">
+              <div>
+                <div class="contact-link-label">Email</div>
+                <div class="contact-link-val">jacksandberg@gmail.com</div>
+              </div>
+              <span class="contact-link-arrow">↗</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="contact-link">
+              <div>
+                <div class="contact-link-label">LinkedIn</div>
+                <div class="contact-link-val">linkedin.com/in/jacksandberg</div>
+              </div>
+              <span class="contact-link-arrow">↗</span>
+            </a>
+            <a href="https://github.com" target="_blank" class="contact-link">
+              <div>
+                <div class="contact-link-label">GitHub</div>
+                <div class="contact-link-val">github.com/jacksandberg</div>
+              </div>
+              <span class="contact-link-arrow">↗</span>
+            </a>
           </div>
-        </aside>
+        </div>
+        <div class="contact-form">
+          <div>
+            <label>Name</label>
+            <input type="text" placeholder="Your name">
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com">
+          </div>
+          <div>
+            <label>Message</label>
+            <textarea placeholder="Tell me about your project..."></textarea>
+          </div>
+          <button class="btn-submit" onclick="handleSubmit(this)">Send Message →</button>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2026 Jane Developer. All rights reserved.</p>
+      <p>© 2026 Jack Sandberg. All rights reserved.</p>
       <nav class="footer-nav">
-        <a href="mailto:hello@example.com">hello@example.com</a>
+        <a href="mailto:jacksandberg@gmail.com">jacksandberg@gmail.com</a>
       </nav>
     </div>
   </footer>

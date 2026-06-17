@@ -97,3 +97,83 @@ h2{font-size:1.25rem;margin-bottom:0.75rem}
   .contact-inner{grid-template-columns:1fr}
   .container{padding:1rem}
 }
+
+/* --- Styles imported from index_inspo.html to support merged sections --- */
+/* Note: These add additional layout/typography and component styles used by the inspo content. */
+:root{
+  --bg2:#f5f2eb;
+  --ink:#0e0e0e;
+  --muted2:#888;
+  --line:#d8d4cb;
+  --accent2:#ff4d00;
+}
+.marquee-wrap{overflow:hidden;border-bottom:1px solid var(--line);background:var(--ink);padding:12px 0}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 18s linear infinite}
+.marquee-track span{font-family:var(--ff);font-size:14px;color:var(--bg);letter-spacing:3px;padding:0 32px;opacity:0.6}
+.marquee-track span.hi{color:var(--accent);opacity:1}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.clients{padding:48px 40px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:40px}
+.clients-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);white-space:nowrap;flex-shrink:0}
+.clients-logos{display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+.client-pill{font-family:var(--ff);font-size:15px;letter-spacing:2px;color:var(--muted);transition:color 0.2s}
+.client-pill:hover{color:var(--ink)}
+
+.section-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:40px;display:flex;align-items:center;gap:12px}
+.section-tag::after{content:'';flex:1;height:1px;background:var(--line)}
+
+.works{padding:80px 40px;border-bottom:1px solid var(--line)}
+.work-item{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin-bottom:24px;transition:border-color 0.3s;text-decoration:none;color:inherit}
+.work-item:hover{border-color:var(--ink)}
+.work-thumb{aspect-ratio:16/9;overflow:hidden;background:var(--card);display:flex;align-items:center;justify-content:center;position:relative}
+.work-thumb .mock-screen{width:90%;background:#1a1a2e;border-radius:4px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+.work-body{padding:36px 32px;display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid var(--line)}
+.work-num{font-size:10px;color:var(--muted);letter-spacing:2px;margin-bottom:16px}
+.work-title{font-family:var(--ff);font-size:clamp(20px,2.5vw,32px);letter-spacing:1px;line-height:1.1;margin-bottom:12px}
+.work-client{font-size:11px;color:var(--accent2);letter-spacing:1px;margin-bottom:16px}
+.work-desc{font-size:12px;color:var(--muted);line-height:1.75;flex:1}
+.work-footer{display:flex;align-items:center;justify-content:space-between;margin-top:24px;border-top:1px solid var(--line);padding-top:16px}
+.work-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:10px;letter-spacing:1px;padding:3px 8px;border:1px solid var(--line);color:var(--muted)}
+.work-arrow{font-size:18px;transition:transform 0.2s;color:var(--muted)}
+
+.about-text h2{font-family:var(--ff);font-size:clamp(40px,5vw,64px);line-height:0.95;letter-spacing:2px;margin-bottom:24px}
+.about-text em{font-style:italic;color:var(--muted)}
+
+.exp-section{margin-top:0}
+.exp-heading{font-family:var(--ff);font-size:18px;letter-spacing:2px;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.exp-row{display:grid;grid-template-columns:80px 1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.exp-year{font-size:10px;color:var(--muted);letter-spacing:1px;white-space:nowrap}
+.exp-role{font-size:13px;font-weight:500;color:var(--ink)}
+.exp-role small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}
+.exp-company{font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;background:var(--card);border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.exp-company.accent{background:var(--ink);color:var(--accent);border-color:var(--ink)}
+
+.certs{padding:80px 40px;border-bottom:1px solid var(--line);background:var(--ink)}
+.certs .section-tag{color:rgba(255,255,255,0.3)}
+.certs .section-tag::after{background:rgba(255,255,255,0.1)}
+.certs-heading{font-family:var(--ff);font-size:clamp(32px,5vw,56px);color:var(--bg);letter-spacing:2px;margin-bottom:48px}
+.certs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cert-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:20px;transition:border-color 0.3s}
+.cert-card:hover{border-color:var(--accent)}
+.cert-icon{font-size:28px;margin-bottom:12px;display:block}
+.cert-name{font-size:12px;color:rgba(255,255,255,0.8);line-height:1.5}
+.cert-issuer{font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;letter-spacing:1px}
+
+.contact-left h2{font-family:var(--ff);font-size:clamp(40px,6vw,80px);line-height:0.9;letter-spacing:2px;margin-bottom:24px}
+.contact-links{display:flex;flex-direction:column;gap:12px}
+.contact-link{display:flex;align-items:center;gap:16px;padding:14px 20px;border:1px solid var(--line);text-decoration:none;color:var(--ink);transition:all 0.2s}
+.contact-link:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.contact-link-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.contact-link-val{font-size:13px;font-weight:500}
+.contact-link-arrow{margin-left:auto;font-size:16px}
+
+.contact-form input,.contact-form textarea{width:100%;padding:0.75rem;border-radius:8px;border:1px solid #e6e9ef;margin-top:0.4rem}
+.btn-submit{width:100%;font-size:11px;letter-spacing:2px;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:14px;border:none;cursor:pointer}
+
+@media(max-width:768px){
+  .certs-grid{grid-template-columns:1fr 1fr}
+  .clients{flex-direction:column;align-items:flex-start;gap:20px;padding:32px 20px}
+  .works,.about,.certs,.contact{padding:60px 20px}
+}
+
