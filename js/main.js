@@ -27,14 +27,22 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 });
 
-// Active nav on scroll (from index_inspo)
+// Active nav on scroll (highlight active section)
 const sections = document.querySelectorAll('section[id]');
 const links = document.querySelectorAll('.nav a');
-window.addEventListener('scroll', () => {
+function onScrollNav(){
   let cur = '';
-  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) cur = s.id; });
-  links.forEach(a => { if(a.getAttribute('href') === '#'+cur) { a.style.color = 'var(--accent)'; } else { a.style.color = ''; } });
-});
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - (window.innerHeight/3)) cur = s.id; });
+  links.forEach(a => {
+    if(a.getAttribute('href') === '#'+cur){
+      a.classList.add('active');
+    } else {
+      a.classList.remove('active');
+    }
+  });
+}
+window.addEventListener('scroll', onScrollNav);
+onScrollNav();
 
 // Scroll reveal for works and certs
 const observer = new IntersectionObserver((entries) => {
